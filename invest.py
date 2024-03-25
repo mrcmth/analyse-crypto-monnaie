@@ -27,29 +27,6 @@ def get_price(crypto, retries=3):
     print(f"Failed to get price for {crypto} after {retries} attempts")
     return None
 
-def selection_crypto(client):
-    crypto_list = [
-        "SHIB-USDC", "QI-USDC", "RPL-USDC", "MEDIA-USDC", "00-USDC", "CTX-USDC", "DNT-USDC", "VET-USDC", "BONK-USDC", "LSETH-USDC", "SEI-USDC", "AXS-USDC", "CRO-USDC", "APT-USDC", "NEAR-USDC", "IMX-USDC", "INJ-USDC",
-        "CBETH-USDC", "LDO-USDC", "TIA-USDC", "HBAR-USDC", "DOGE-USDC", "GST-USDC", "LTC-USDC", "XYO-USDC", "EGLD-USDC",
-        "ENJ-USDC", "AXL-USDC", "RENDER-USDC", "AVAX-USDC", "ATOM-USDC", "UNI-USDC", "ICP-USDC", "SOL-USDC", "ARB-USDC", "XRP-USDC",
-        "SYN-USDC", "STRK-USDC", "DAI-USDC", "ETC-USDC", "BCH-USDC", "MATIC-USDC"
-    ]
-
-    c_eligible = []
-
-    for el in crypto_list:
-        z = float(client.get_product(el)['price_percentage_change_24h'])
-        if 1 <= z <= 10 :
-            c_eligible.append(el)
-
-    if not c_eligible:
-        print("Aucune crypto éligible trouvée pour le trade.")
-        return None
-
-    #crypto_choice = min(c_eligible)
-    #print("Crypto choisie pour le trade : ", crypto_choice)
-    return c_eligible
-
 def order_client():
     return str(random.randint(10000000, 99999999))
 

@@ -301,4 +301,10 @@ J'utilise donc une clé d'API que je stocke dans un json, l'appel des fonction d
 ```
 client = RESTClient(key_file="cb_id.json")
 ```
+Exemple de lecture de fichier json retourné par l'API :
+```
+client.get_product(crypto)["price"]
+```
+
+
 
